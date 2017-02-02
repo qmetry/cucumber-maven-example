@@ -44,7 +44,15 @@ module.exports = function(grunt) {
 	
 	var serverpath = grunt.option('serverpath');
 	var apikey = grunt.option('apikey');
-
+	var testRunName = grunt.option('testRunName');
+	var platform = grunt.option('platform');
+	var labels = grunt.option('labels');
+	var components = grunt.option('components');
+	var versions = grunt.option('versions');
+	var sprint = grunt.option('sprint');
+	var comment = grunt.option('comment');
+	
+	
     
     grunt.registerTask("pomfile", "Run loop to replace css in jsp file by minified css",
             function() {
@@ -57,13 +65,13 @@ module.exports = function(grunt) {
             json.project.build = JsonConfig.Build;
             json.project.build.plugins.plugin.configuration.systemPropertyVariables.server = serverpath;
             json.project.build.plugins.plugin.configuration.systemPropertyVariables.apiKey = apikey;
-            json.project.build.plugins.plugin.configuration.systemPropertyVariables.testRunName = properties.get('main.testRunName');
-            json.project.build.plugins.plugin.configuration.systemPropertyVariables.platform = properties.get('main.platform');
-            json.project.build.plugins.plugin.configuration.systemPropertyVariables.labels = properties.get('main.labels');
-            json.project.build.plugins.plugin.configuration.systemPropertyVariables.components = properties.get('main.components');
-            json.project.build.plugins.plugin.configuration.systemPropertyVariables.versions = properties.get('main.versions');
-            json.project.build.plugins.plugin.configuration.systemPropertyVariables.sprint = properties.get('main.sprint');
-            json.project.build.plugins.plugin.configuration.systemPropertyVariables.comment = properties.get('main.comment');
+            json.project.build.plugins.plugin.configuration.systemPropertyVariables.testRunName = testRunName;
+            json.project.build.plugins.plugin.configuration.systemPropertyVariables.platform = platform;
+            json.project.build.plugins.plugin.configuration.systemPropertyVariables.labels = labels;
+            json.project.build.plugins.plugin.configuration.systemPropertyVariables.components = components;
+            json.project.build.plugins.plugin.configuration.systemPropertyVariables.versions = versions;
+            json.project.build.plugins.plugin.configuration.systemPropertyVariables.sprint = sprint;
+            json.project.build.plugins.plugin.configuration.systemPropertyVariables.comment = comment;
             //for repo
             json.project.repositories = JsonConfig.repositories;
             
