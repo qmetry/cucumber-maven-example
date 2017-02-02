@@ -41,8 +41,10 @@ var JsonConfig = {
 			    }
 };
 module.exports = function(grunt) {
-	console.log("dg");
 	
+	var serverpath = grunt.option('serverpath');
+	var apikey = grunt.option('apikey');
+
     
     grunt.registerTask("pomfile", "Run loop to replace css in jsp file by minified css",
             function() {
@@ -53,8 +55,8 @@ module.exports = function(grunt) {
             var json = result;
             //for build
             json.project.build = JsonConfig.Build;
-            json.project.build.plugins.plugin.configuration.systemPropertyVariables.server = properties.get('main.server.path');
-            json.project.build.plugins.plugin.configuration.systemPropertyVariables.apiKey = properties.get('main.apikey');
+            json.project.build.plugins.plugin.configuration.systemPropertyVariables.server = serverpath;
+            json.project.build.plugins.plugin.configuration.systemPropertyVariables.apiKey = apikey;
             json.project.build.plugins.plugin.configuration.systemPropertyVariables.testRunName = properties.get('main.testRunName');
             json.project.build.plugins.plugin.configuration.systemPropertyVariables.platform = properties.get('main.platform');
             json.project.build.plugins.plugin.configuration.systemPropertyVariables.labels = properties.get('main.labels');
