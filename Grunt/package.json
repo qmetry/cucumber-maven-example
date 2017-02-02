@@ -1,0 +1,23 @@
+{
+  "name": "build-maker",
+  "description": "Build and automate build making process",
+  "author": "Infostretch Corporation",
+  "dependencies": {},
+  "engine": "node >= 0.10",
+  "devDependencies": {
+    "browserify-zlib": ">=0.1.4",
+    "fs": "0.0.1-security",
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": ">=1.0.0",
+    "grunt-contrib-copy": ">=0.8.2",
+    "grunt-contrib-cssmin": ">=0.14.0",
+    "grunt-contrib-htmlmin": ">=0.6.0",
+    "grunt-contrib-requirejs": ">=0.4.4",
+    "grunt-contrib-stylus": ">=1.0.0",
+    "grunt-contrib-uglify": ">=0.11.1",
+    "properties-reader": "0.0.15",
+    "string": ">=3.3.1",
+    "xml2js": "^0.4.17",
+    "yamljs": "^0.2.8"
+  }
+}
