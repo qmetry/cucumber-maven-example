@@ -10,7 +10,9 @@ node('master') {
         sh """
             cd Grunt
             npm install
-            grunt
+			echo ${serverpath}
+			echo ${apikey}
+            grunt serverpath=${serverpath} apikey=${apikey}
         """
     }
     stage('Run') {
