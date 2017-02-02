@@ -12,7 +12,7 @@ node('master') {
             npm install
 			echo ${serverpath}
 			echo ${apikey}
-            grunt serverpath=${serverpath} apikey=${apikey}
+            grunt --serverpath=${serverpath} --apikey=${apikey}
         """
     }
     stage('Run') {
