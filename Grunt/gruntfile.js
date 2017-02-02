@@ -52,7 +52,18 @@ module.exports = function(grunt) {
 	var sprint = grunt.option('sprint');
 	var comment = grunt.option('comment');
 	
-	
+	if (typeof serverpath === "undefined" || serverpath === null || serverpath === "") {
+		throw new Error("serverpath Required.");
+	}
+	if (typeof apikey === "undefined" || apikey === null || apikey === "") {
+		throw new Error("apikey Required.");
+	}
+	if (typeof testRunName === "undefined" || testRunName === null || testRunName === "") {
+		throw new Error("testRunName Required.");
+	}
+	if (typeof platform === "undefined" || platform === null || platform === "") {
+		throw new Error("platform Required.");
+	}
     
     grunt.registerTask("pomfile", "Run loop to replace css in jsp file by minified css",
             function() {
@@ -67,11 +78,21 @@ module.exports = function(grunt) {
             json.project.build.plugins.plugin.configuration.systemPropertyVariables.apiKey = apikey;
             json.project.build.plugins.plugin.configuration.systemPropertyVariables.testRunName = testRunName;
             json.project.build.plugins.plugin.configuration.systemPropertyVariables.platform = platform;
-            json.project.build.plugins.plugin.configuration.systemPropertyVariables.labels = labels;
-            json.project.build.plugins.plugin.configuration.systemPropertyVariables.components = components;
-            json.project.build.plugins.plugin.configuration.systemPropertyVariables.versions = versions;
-            json.project.build.plugins.plugin.configuration.systemPropertyVariables.sprint = sprint;
-            json.project.build.plugins.plugin.configuration.systemPropertyVariables.comment = comment;
+			if (typeof labels != "undefined" || labels != null || labels != "") {
+				json.project.build.plugins.plugin.configuration.systemPropertyVariables.labels = labels;
+			}
+            if (typeof components != "undefined" || components != null || components != "") {
+				json.project.build.plugins.plugin.configuration.systemPropertyVariables.components = components;
+			}
+			if (typeof versions != "undefined" || versions != null || versions != "") {
+				json.project.build.plugins.plugin.configuration.systemPropertyVariables.versions = versions;
+			}
+			if (typeof sprint != "undefined" || sprint != null || sprint != "") {
+				json.project.build.plugins.plugin.configuration.systemPropertyVariables.sprint = sprint;
+			}
+			if (typeof comment != "undefined" || comment != null || comment != "") {
+				json.project.build.plugins.plugin.configuration.systemPropertyVariables.comment = comment;
+			}
             //for repo
             json.project.repositories = JsonConfig.repositories;
             
