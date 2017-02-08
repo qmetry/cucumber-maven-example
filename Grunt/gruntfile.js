@@ -1,8 +1,7 @@
 var fs = require('fs');
 var parseString = require('xml2js').parseString;
 var xml2js = require('xml2js');
-var PropertiesReader = require('properties-reader');
-var properties = PropertiesReader('config.properties');
+//JsonConfig is defined for basic structure in pom.xml
 var JsonConfig = {
 		  "Build": {
 			    "plugins": {
@@ -42,6 +41,7 @@ var JsonConfig = {
 };
 module.exports = function(grunt) {
 	
+	//Taking Parameters from grunt command which is send from jenkins. 
 	var serverpath = grunt.option('serverpath');
 	var apikey = grunt.option('apikey');
 	var testRunName = grunt.option('testRunName');
@@ -52,6 +52,8 @@ module.exports = function(grunt) {
 	var sprint = grunt.option('sprint');
 	var comment = grunt.option('comment');
 	
+	
+	//Checking required params
 	if (typeof serverpath === "undefined" || serverpath === null || serverpath === "") {
 		throw new Error("serverpath Required.");
 	}
@@ -65,14 +67,17 @@ module.exports = function(grunt) {
 		throw new Error("platform Required.");
 	}
     
+	
     grunt.registerTask("pomfile", "Run loop to replace css in jsp file by minified css",
             function() {
     	
+    	//getting projects pom.xml
     	var data = fs.readFileSync("..//pom.xml", "utf-8");
     	parseString(data, function(err, result){
             if(err) console.log(err);
             var json = result;
-            //for build
+            
+            //for updating <Build> values in existing Pom.xml
             json.project.build = JsonConfig.Build;
             json.project.build.plugins.plugin.configuration.systemPropertyVariables.server = serverpath;
             json.project.build.plugins.plugin.configuration.systemPropertyVariables.apiKey = apikey;
@@ -93,10 +98,11 @@ module.exports = function(grunt) {
 			if (typeof comment != "undefined" || comment != null || comment != "") {
 				json.project.build.plugins.plugin.configuration.systemPropertyVariables.comment = comment;
 			}
-            //for repo
+			
+            //for updating <repositories> values in existing Pom.xml
             json.project.repositories = JsonConfig.repositories;
             
-            //for dep
+            //for updating <dependencies> values in existing Pom.xml
             var length = json.project.dependencies[0].dependency.length;
             var hasTag = false;
             var i = null;
@@ -111,6 +117,7 @@ module.exports = function(grunt) {
             	json.project.dependencies[0].dependency[length]=JsonConfig.dependencies;
             }
             
+            //Writing Pom.xml File
             var builder = new xml2js.Builder();
             var xml = builder.buildObject(json);
             fs.writeFileSync("..//pom.xml", xml, "utf-8");
