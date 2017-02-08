@@ -1,7 +1,7 @@
-# grunt command in Grunt Process Stage takes Parameters of Key value pair.
-# Key is use in internal process that can't be change. ex --serverpath, --apikey= etc...
-# Value is taking from jenkins Parameters which is configure in jenkins with specific name written in ${}
-# ex ${serverpath} means serverpath is a build parameters in jenkins with serverpath name.
+#!grunt command in Grunt Process Stage takes Parameters of Key value pair.
+#!Key is use in internal process that can't be change. ex --serverpath, --apikey= etc...
+#!Value is taking from jenkins Parameters which is configure in jenkins with specific name written in ${}
+#!ex ${serverpath} means serverpath is a build parameters in jenkins with serverpath name.
 node('master') {
     def workSpaceHome = pwd()
     stage('Clean') {
