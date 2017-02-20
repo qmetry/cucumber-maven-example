@@ -1,4 +1,4 @@
-node('master') {
+node('ILSIEDISON') {
     def workSpaceHome = pwd()
     stage('Clean') {
         deleteDir()
@@ -14,7 +14,7 @@ node('master') {
         """
     }
     stage('Run') {
-       withMaven(jdk: 'JDK', maven: 'maven3', mavenLocalRepo: '', mavenOpts: '', mavenSettingsFilePath: '') {
+       withMaven(jdk: 'JDK8', maven: 'Maven-3-3-9', mavenLocalRepo: '', mavenOpts: '', mavenSettingsFilePath: '') {
            sh "mvn test"
        }
     }
