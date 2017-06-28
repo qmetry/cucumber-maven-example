@@ -29,7 +29,7 @@ var JsonConfig = {
 			    	{
 			    		    "groupId": "com.infostretch.qmetrytestmanager",
 			    		    "artifactId": "qmetrytestmanager-maven-plugin",
-			    		    "version": "1.0.2"
+			    		    "version": "1.6"
 			    },
 			    "repositories": {
 			    	"repository": {
