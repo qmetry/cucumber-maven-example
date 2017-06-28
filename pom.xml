@@ -27,7 +27,7 @@
     <dependency>
         <groupId>com.infostretch.qmetrytestmanager</groupId>
         <artifactId>qmetrytestmanager-maven-plugin</artifactId>
-        <version>1.0.2</version>
+        <version>1.6</version>
     </dependency>
   </dependencies>
   <repositories>
