@@ -27,7 +27,7 @@
     <dependency>
         <groupId>com.infostretch.qmetrytestmanager</groupId>
         <artifactId>qmetrytestmanager-maven-plugin</artifactId>
-        <version>1.6</version>
+        <version>1.7</version>
     </dependency>
   </dependencies>
   <repositories>
@@ -45,11 +45,11 @@
             <version>2.18.1</version>
             <configuration>
                 <systemPropertyVariables>
-                    <server>https://855a885b.ngrok.io/connect</server>
-                    <apiKey>16948a960e82fd15ff7175e757d16efcceb52d458ae7c3ba2beed9cecea533f6</apiKey>
+                    <server>https://importresults.qmetry.com/prod/importresults-qtm4j</server>
+                    <apiKey>b619773623cbeff8df293aa04c2f6dd2df706fa07c35d4032c3db5f137efrf9</apiKey>
                     <!-- testRunName : Provide the name for the new test run -->
-                    <testRunName>tr</testRunName>
-                    <platform>Chrome</platform>
+                    <testRunName>New Test Run</testRunName>
+                    
                 </systemPropertyVariables>
             </configuration>
         </plugin>
