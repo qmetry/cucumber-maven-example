@@ -8,7 +8,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
 		  features = "classpath:cucumber/calculator.feature" ,
 		  glue = "com.czeczotka.bdd.steps",
-		plugin = "com.infostretch.qmetrytestmanager.result.TestExecution" ,
 		monochrome = true,
 format = "json:target/cucumber-json-report.json"
 )
