@@ -58,7 +58,7 @@ please update these details in `pom.xml` file.
 <div class="m-t-sm">
 	<label>Configure below properties:</label>
     <pre class="select-block code-block"><code>automation.qmetry.enabled = true</code>
-<code>automation.qmetry.url = https://importresults.qmetry.com/preprod/importresults-qtm4j</code>
+<code>automation.qmetry.url = https://importresults.qmetry.com/prod/importresults-qtm4j</code>
 <code>automation.qmetry.apikey = {{your API key}}</code>
 <code>automation.qmetry.testrunname = Test Run</code>
 <code>automation.qmetry.labels = lbl1,lbl2</code>
