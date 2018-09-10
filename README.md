@@ -14,7 +14,7 @@ please update these details in `pom.xml` file.
 		<code>&lt;plugin&gt;</code>
 			<code>&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</code>
 			<code>&lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;</code>
-			<code>&lt;version&gt;2.20&lt;/version&gt;</code>
+			<code>&lt;version&gt;2.22.0&lt;/version&gt;</code>
 			<code>&lt;configuration&gt;</code>
 			    <code>&lt;systemPropertyVariables&gt;</code>
 					<code>&lt;cucumber.options&gt;--plugin com.qmetry.automation.CucumberResultUploader&lt;/cucumber.options&gt;</code>
@@ -33,7 +33,7 @@ please update these details in `pom.xml` file.
     <code>&lt;dependency&gt;</code>
         <code>&lt;groupId&gt;com.qmetry&lt;/groupId&gt;</code>
         <code>&lt;artifactId&gt;automation&lt;/artifactId&gt;</code>
-        <code>&lt;version&gt;1.0.0&lt;/version&gt;</code>
+        <code>&lt;version&gt;1.0.2&lt;/version&gt;</code>
     <code>&lt;/dependency&gt;</code>
 <code>&lt;/dependencies&gt;</code>
 	</pre>
@@ -76,7 +76,9 @@ please update these details in `pom.xml` file.
 
 <div class="m-t-sm">
     <label>if you are using on premise JIRA, then configure below properties as well:</label>
-    <pre class="select-block code-block"><code>automation.qmetry.username = admin</code>
+    <pre class="select-block code-block"><code>automation.qmetry.authorization=Basic YWRtaW46YWRtaW4=</code>
+    	<code>OR</code>
+<code>automation.qmetry.username = admin</code>
 <code>automation.qmetry.password = admin</code>	
 	</pre>
     <label>Once the file is configured, the automation test results will get uploaded automatically whenever the user executes the automation project (e.g. using 'mvn test').</label>
