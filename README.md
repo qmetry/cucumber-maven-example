@@ -71,6 +71,8 @@ please update these details in `pom.xml` file.
 <code>automation.qmetry.testassethierarchy = TestCase-TestStep</code>
 <code>automation.qmetry.jirafields = </code>
 <code>automation.qmetry.debug = true</code>
+<code>automation.qmetry.attachfile=true</code>
+<code>automation.qmetry.testcaseupdatelevel=0</code>
 	</pre>
 </div>
 
