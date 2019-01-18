@@ -20,33 +20,42 @@ import java.nio.file.Paths;
 public class CalculatorSteps {
 
     private Calculator calculator;
+    
+    private Scenario scenario;
 
     @Before
-    public void setUp() {
+    public void setUp(Scenario scenario) {
         calculator = new Calculator();
+        this.scenario = scenario;
     }
 
     @Given("^I have a calculator$")
     public void i_have_a_calculator() throws Throwable {
         assertNotNull(calculator);
+        embedScreenshot(scenario);
     }
 
     @When("^I add (-?\\d+) and (-?\\d+)$")
     public void i_add_and(int arg1, int arg2) throws Throwable {
         calculator.add(arg1, arg2);
+        embedScreenshot(scenario);
     }
 
     @Then("^the result should be (-?\\d+)$")
     public void the_result_should_be(int result) throws Throwable {
         assertEquals(result, calculator.getResult());
+        embedScreenshot(scenario);
     }
     
-    @After  
+    @After
+    public void finalize(Scenario scenario) {
+    	 	embedScreenshot(scenario);
+    }
+    
     public void embedScreenshot(Scenario scenario) {  
             try {  
             		Path path = Paths.get("./1.png");
                 byte[] screenshot = Files.readAllBytes(path);
-                System.out.println("embading");
                 scenario.embed(screenshot, "image/png"); 
             } catch (ClassCastException cce) {  
                 cce.printStackTrace();  
